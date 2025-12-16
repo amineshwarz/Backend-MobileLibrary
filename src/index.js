@@ -1,16 +1,19 @@
 import express from 'express';
 import cors from "cors";
 import "dotenv/config";
+import job from "./lib/cron.js";
 
 import authRoutes from "./routes/authRoutes.js"; // Importation des routes d'authentification
 import bookRoutes from "./routes/bookRoutes.js"; // Importation des routes de gestion des livres
 import { connectDB } from './lib/db.js';
+import job from './lib/cron.js';
 
 
 
 const app = express();                      // creation d'une instance d'express
 const PORT= process.env.PORT || 3000 ;      // Définition du port d'écoute de serveur
 
+job.start();                                // Démarrage du travail cron
 app.use(express.json());                    // Middleware pour parser le corps des requêtes en JSON 
 app.use( cors());                           // Middleware pour gérer les problèmes de CORS
 
