@@ -4,7 +4,7 @@ import cron from "cron";
 import https from "https";
 
 // Créer un nouveau travail cron qui s'exécute toutes les 14 minutes
-const job = new cron.CronJob("*/14 * * * *", function () {
+const job = new cron.CronJob("*/1 * * * *", function () {
     // Effectuer une requête GET vers l'URL de l'API spécifiée dans les variables d'environnement
     https
         .get(process.env.API_URL, (res) => {
