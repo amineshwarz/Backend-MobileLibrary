@@ -16,6 +16,12 @@ job.start();                                // Démarrage du travail cron
 app.use(express.json());                    // Middleware pour parser le corps des requêtes en JSON 
 app.use( cors());                           // Middleware pour gérer les problèmes de CORS
 
+// Dans index.js, avant les autres routes
+app.get('/ping', (req, res) => {
+    res.send('Pong ! Je suis vivant et connecté.');
+});
+
+
 app.use("/api/auth", authRoutes);           // Utilisation des routes d'authentification
 app.use("/api/books",bookRoutes);           // Utilisation des routes de gestion des livres
 
