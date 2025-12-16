@@ -2,11 +2,10 @@ import express from 'express';
 import cors from "cors";
 import "dotenv/config";
 import job from "./lib/cron.js";
-
 import authRoutes from "./routes/authRoutes.js"; // Importation des routes d'authentification
 import bookRoutes from "./routes/bookRoutes.js"; // Importation des routes de gestion des livres
 import { connectDB } from './lib/db.js';
-import job from './lib/cron.js';
+
 
 
 
